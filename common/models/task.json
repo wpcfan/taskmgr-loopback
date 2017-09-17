@@ -1,0 +1,51 @@
+{
+  "name": "Task",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "desc": {
+      "type": "string",
+      "required": true
+    },
+    "priority": {
+      "type": "number",
+      "required": true,
+      "default": 3
+    },
+    "dueDate": {
+      "type": "date"
+    },
+    "reminderDate": {
+      "type": "date"
+    },
+    "createdDate": {
+      "type": "date",
+      "required": true
+    },
+    "taskListId": {
+      "type": "number",
+      "required": true
+    },
+    "ownerId": {
+      "type": "number"
+    },
+    "completed": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "taskList": {
+      "type": "belongsTo",
+      "model": "TaskList",
+      "foreignKey": "taskListId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
